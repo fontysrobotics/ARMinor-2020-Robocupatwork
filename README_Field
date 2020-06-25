@@ -1,10 +1,10 @@
 To get the field working in gazebo a path has to be added to a gazebo file. This file is the gui.ini, the file is located in the .gazebo folder. In this file there should be a line defining filenames. This line is probably the last one. If the command already has one or more file directories, add directly behind the last path :/home/your_computer_name/your_catkin_ws_name/src/P2_Project_Robocup/Suii/suii_description/Field/models   
 
-make sure that the path from home to P2_Project_Robocup is correctly filled in for your computer.
+make sure that the path from home to ARMinor-2020-Robocupatwork is correctly filled in for your computer.
 
-if there is not yet a filenames command, add the line filenames=/home/your_computer_name/your_catkin_ws_name/src/P2_Project_Robocup/Suii/suii_description/Field/models
+if there is not yet a filenames command, add the line filenames=/home/your_computer_name/your_catkin_ws_name/src/ARMinor-2020-Robocupatwork/Suii/suii_description/Field/models
 
-then open the robocup_at_work.world file which can be found at P2_Project_Robocup/Suii/suii_description/Field/world
+then open the robocup_at_work.world file which can be found at ARMinor-2020-Robocupatwork/Suii/suii_description/Field/world
 
 click ctl+f
 
