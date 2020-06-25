@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Part1.SLDPRT">
+  <link
+    name="Plastic_Tube.SLDPRT">
+    <inertial>
+      <origin
+        xyz="-1.3687E-06 -0.022533 -9.73869999999986E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.014" />
+      <inertia
+        ixx="2.831E-06"
+        ixy="1.42849999999999E-12"
+        ixz="2.0067E-10"
+        iyy="1.6895E-06"
+        iyz="2.39270000000071E-10"
+        izz="2.8414E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://suii_description/Field/objects/meshes/plastic_tube.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+        <texture
+          filename="package://suii_description/Field/objects/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://suii_description/Field/objects/meshes/plastic_tube.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

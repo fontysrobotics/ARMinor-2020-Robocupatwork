@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="practicum 7-1.SLDPRT">
+  <link
+    name="practicum 7-1.SLDPRT">
+    <inertial>
+      <origin
+        xyz="-1.5657E-09 7.32170004546106E-10 0.074246"
+        rpy="0 0 0" />
+      <mass
+        value="0.04" />
+      <inertia
+        ixx="3.3109E-05"
+        ixy="-5.9419E-13"
+        ixz="2.4184E-13"
+        iyy="3.3081E-05"
+        iyz="-4.76650014636801E-14"
+        izz="9.1765E-06"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://suii_description/Field/objects/meshes/axle.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+        <texture
+          filename="package://suii_description/Field/objects/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://suii_description/Field/objects/meshes/axle.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

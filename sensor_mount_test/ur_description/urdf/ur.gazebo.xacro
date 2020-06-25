@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="ur_arm_gazebo" params="prefix">
+
+    <gazebo reference="${prefix}base_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}ur3_mount_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}left_front_wheel_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>    
+    <gazebo reference="${prefix}left_back_wheel_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>    
+    <gazebo reference="${prefix}right_front_wheel_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>    
+    <gazebo reference="${prefix}right_back_wheel_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}bottum_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}shoulder_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}upper_arm_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}forearm_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}wrist_1_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}wrist_3_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}wrist_2_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="${prefix}ee_link">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="hokuyo_link">
+      <sensor type="gpu_ray" name="head_hokuyo_sensor">
+        <pose>0 0 0 0 0 0</pose>
+        <visualize>false</visualize>
+        <update_rate>40</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>720</samples>
+              <resolution>1</resolution>
+              <min_angle>-1.570796</min_angle>
+              <max_angle>1.570796</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.10</min>
+            <max>30.0</max>
+            <resolution>0.01</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </ray>
+        <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+          <topicName>/suii/laser/scan</topicName>
+          <frameName>hokuyo_link</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+    <!-- sonar -->
+    <gazebo reference="sonar_link">        
+      <sensor type="ray" name="sonar_sensor">
+        <pose>0 0 0 0 0 0</pose>
+        <update_rate>50</update_rate>
+        <ray>
+            <scan>
+              <horizontal>
+                  <samples>10</samples>
+                  <resolution>1.0</resolution>
+                  <min_angle>-0.01</min_angle>
+                  <max_angle>0.01</max_angle>
+              </horizontal>
+              <vertical>
+                  <samples>10</samples>
+                  <resolution>1</resolution>
+                  <min_angle>-0.01</min_angle>
+                  <max_angle>0.01</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.01</min>
+              <max>3.75</max>
+              <resolution>0.02</resolution>
+            </range>
+        </ray>
+        <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+            <gaussianNoise>0.005</gaussianNoise>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>5</updateRate>
+            <topicName>/suii/sonar/scan</topicName>
+            <frameName>sonar_link</frameName>
+            <visualize>true</visualize>
+            <radiation>infrared</radiation>
+            <fov>0.2</fov>
+        </plugin>
+      </sensor>            
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>

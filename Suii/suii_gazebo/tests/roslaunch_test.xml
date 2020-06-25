@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+  <group ns="suii__">
+    <include file="$(find suii_gazebo)/launch/suii.launch"/>
+  </group>
+
+
+  <group ns="controller_utils__">
+    <include file="$(find suii_gazebo)/launch/controller_utils.launch"/>
+  </group>
+
+</launch>

@@ -1,0 +1,34 @@
+To get the field working in gazebo a path has to be added to a gazebo file. This file is the gui.ini, the file is located in the .gazebo folder. In this file there should be a line defining filenames. This line is probably the last one. If the command already has one or more file directories, add directly behind the last path :/home/your_computer_name/your_catkin_ws_name/src/P2_Project_Robocup/Suii/suii_description/Field/models   
+
+make sure that the path from home to P2_Project_Robocup is correctly filled in for your computer.
+
+if there is not yet a filenames command, add the line filenames=/home/your_computer_name/your_catkin_ws_name/src/P2_Project_Robocup/Suii/suii_description/Field/models
+
+then open the robocup_at_work.world file which can be found at P2_Project_Robocup/Suii/suii_description/Field/world
+
+click ctl+f
+
+search for home/ros/ and replace that for home/your_computer_name/
+
+save the changes.
+
+after this the field can be launched with the suii.launch file. 
+
+to get everything started click on the play button in the bottom of the screen.
+
+the rotating table can be started with a command typed in the terminal. the command is 
+rostopic pub /table_cmd_vel geometry_msgs/Twist "linear:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 0.5" 
+
+the angular z determines the rotational speed of the table.
+
+in the field several objects are placed for testing. the location of these objects can be changes within the suii.launch file. Find the object spawner and look at the name of the object in the args and change the x, y or Y coordinate to change the x direction, y direction or the Yaw (rotational z) direction. 
+
+
+

@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/ros/catkin_ws/devel/include/**",
+        "/home/ros/turtlekin_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/ros/catkin_ws/src/beginner_tutorials/include/**",
+        "/home/ros/catkin_ws/src/cob_scan_unifier/include/**",
+        "/home/ros/turtlekin_ws/src/turtlebot3/hls_lfcd_lds_driver/include/**",
+        "/home/ros/catkin_ws/src/openslam_gmapping/include/**",
+        "/home/ros/catkin_ws/src/simple_navigation_goals/include/**",
+        "/home/ros/turtlekin_ws/src/turtlebot3_simulations/turtlebot3_fake/include/**",
+        "/home/ros/turtlekin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
+        "/home/ros/turtlekin_ws/src/turtlebot3/turtlebot3_slam/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ]
+}

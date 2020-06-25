@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Part1">
+  <link
+    name="plateau_2">
+    <inertial>
+      <origin
+        xyz="1.6653E-16 -2.31637261731661E-17 0.075"
+        rpy="0 0 0" />
+      <mass
+        value="67.5" />
+      <inertia
+        ixx="1.5328"
+        ixy="5.6668E-16"
+        ixz="3.16886964292032E-32"
+        iyy="4.6828"
+        iyz="7.83564375493248E-17"
+        izz="5.9625" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://suii_description/Field/plateau/meshes/plateau.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+        <texture
+          filename="package://suii_description/Field/plateau/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://suii_description/Field/plateau/meshes/plateau.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

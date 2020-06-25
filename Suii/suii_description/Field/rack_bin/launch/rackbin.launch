@@ -1,0 +1,6 @@
+<launch>
+    <param name="rack_bin_description" textfile="$(find rack_bin)/urdf/rack_bin.urdf" />
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="true" args="param rack_bin_description -urdf -model rack_bin" />
+</launch>
+
+

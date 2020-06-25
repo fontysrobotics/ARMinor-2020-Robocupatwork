@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="limited" default="false" doc="If true, limits joint range [-PI, PI] on all joints." />
+  <arg name="paused" default="true" doc="Starts gazebo in paused mode" />
+  <arg name="gui" default="true" doc="Starts gazebo gui" />
+  
+  <!-- startup simulated world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" default="$(find suii_description)/Field/world/robocup_at_work.world"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+
+  <!--send robot urdf to param server -->
+  <include file="$(find suii_description)/launch/suii_upload.launch">
+    <arg name="limited" value="$(arg limited)"/>
+  </include>
+
+<!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot -x 2 -y 1 -z 0.025" respawn="false" output="screen" /> -->
+  <include file="$(find suii_gazebo)/launch/controller_utils.launch"/>
+
+  <!-- start this controller -->
+  <rosparam file="$(find suii_gazebo)/controller/arm_controller_ur3.yaml" command="load"/>
+  <node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn arm_controller" respawn="false" output="screen"/>
+  <node name="gripper_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn gripper_controller" respawn="false" output="screen"/>
+  <!-- load other controllers -->
+  <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="load joint_group_position_controller" />
+<!--field launch-->
+  <arg name="model1" default="$(find suii_description)/Field/table/urdf/table.urdf"/>
+  <arg name="model2" default="$(find suii_description)/Field/rack_bin/urdf/rack_bin_red.urdf"/>
+  <arg name="model3" default="$(find suii_description)/Field/rack_bin/urdf/rack_bin_blue.urdf"/>
+  <arg name="model4" default="$(find suii_description)/Field/plateau/urdf/plateau_1.urdf"/>
+
+
+  <param name="table" textfile="$(find suii_description)/Field/table/urdf/table.urdf" />
+  <param name="rack_bin_red" textfile="$(find suii_description)/Field/rack_bin/urdf/rack_bin_red.urdf" />
+  <param name="rack_bin_blue" textfile="$(find suii_description)/Field/rack_bin/urdf/rack_bin_blue.urdf" />
+  <param name="plateau" textfile="$(find suii_description)/Field/plateau/urdf/plateau_1.urdf" />
+
+    <node name="urdf_spawner" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        respawn="false" 
+        output="screen" 
+        args="-x 4.5 -y 0.5 -urdf -model simple_model -param table"/>
+
+    <node name="urdf_spawner_2" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        respawn="false" 
+        output="screen" 
+        args="-x 4.7 -y 4.55 -z 0.25 -Y 4.71 -urdf -model rack_bin_red -param rack_bin_red"/> 
+
+    <node name="urdf_spawner_3" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        respawn="false" 
+        output="screen" 
+        args="-x 4.7 -y 4.35 -z 0.25 -Y 4.71 -urdf -model rack_bin_blue -param rack_bin_blue"/> 
+
+  <!--object launch-->
+    <param name="alu_prof_small_gray" textfile="$(find suii_description)/Field/objects/urdf/alu_prof_small_gray.urdf" />
+    <param name="alu_prof_small_black" textfile="$(find suii_description)/Field/objects/urdf/alu_prof_small_black.urdf" />
+    <param name="alu_prof_large_gray" textfile="$(find suii_description)/Field/objects/urdf/alu_prof_large_gray.urdf" />
+    <param name="alu_prof_large_black" textfile="$(find suii_description)/Field/objects/urdf/alu_prof_large_black.urdf" />
+    <param name="nut_M20" textfile="$(find suii_description)/Field/objects/urdf/nut_M20.urdf" />
+    <param name="nut_M30" textfile="$(find suii_description)/Field/objects/urdf/nut_M30.urdf" />
+    <param name="bolt_M20x100" textfile="$(find suii_description)/Field/objects/urdf/bolt_M20x100.urdf" />
+    <param name="plastic_tube" textfile="$(find suii_description)/Field/objects/urdf/plastic_tube.urdf" />
+    <param name="bearingblock" textfile="$(find suii_description)/Field/objects/urdf/bearingblock.urdf" />
+    <param name="axle" textfile="$(find suii_description)/Field/objects/urdf/axle.urdf" />
+
+
+      <node name="object_1_spawner" 
+          pkg="gazebo_ros" 
+          type="spawn_model" 
+          respawn="false" 
+          output="screen" 
+          args="-x 0.3 -y 0.5 -z 0.2 -urdf -model aluminium_profile_1 -param alu_prof_small_black"/>
+
+      <node name="object_2_spawner" 
+          pkg="gazebo_ros" 
+          type="spawn_model" 
+          respawn="false" 
+          output="screen" 
+          args="-x 0.3 -y 0.35 -z 0.2 -Y 0.73 -urdf -model aluminium_profile_2 -param alu_prof_large_gray"/>
+
+      <node name="object_3_spawner" 
+          pkg="gazebo_ros" 
+          type="spawn_model" 
+          respawn="false" 
+          output="screen" 
+          args="-x 0.3 -y 0.7 -z 0.2 -urdf -model bolt_M20x100 -param bolt_M20x100"/>
+
+      <node name="object_4_spawner" 
+          pkg="gazebo_ros" 
+          type="spawn_model" 
+          respawn="false" 
+          output="screen" 
+          args="-x 0.4 -y 0.5 -z 0.2 -urdf -model plastic_tube -param plastic_tube"/>
+
+      <node name="object_5_spawner" 
+          pkg="gazebo_ros" 
+          type="spawn_model" 
+          respawn="false" 
+          output="screen" 
+          args="-x 0.4 -y 0.7 -z 0.2 -P 1.57 -urdf -model axle -param axle"/>
+
+      <node name="object_6_spawner" 
+          pkg="gazebo_ros" 
+          type="spawn_model" 
+          respawn="false" 
+          output="screen" 
+          args="-x 4.5 -y 0.7 -z 0.4 -urdf -model aluminium_profile_3 -param alu_prof_large_black"/>
+
+       <node name="object_7_spawner" 
+          pkg="gazebo_ros" 
+          type="spawn_model" 
+          respawn="false" 
+          output="screen" 
+          args="-x 4.4 -y 0.65 -z 0.4 -urdf -model aluminium_profile_4 -param alu_prof_small_gray"/>
+
+      <node name="object_8_spawner" 
+          pkg="gazebo_ros" 
+          type="spawn_model" 
+          respawn="false" 
+          output="screen" 
+          args="-x 4.55 -y 0.6 -z 0.4 -urdf -model bearingblock -param bearingblock"/>
+
+
+
+
+  <!-- load the controllers -->
+  <rosparam file="$(find suii_description)/Field/table/config/config.yaml" command="load"/>
+
+  <node name="table_velocity" 
+        pkg ="controller_manager" 
+        type="spawner" 
+        ns="/simple_model" 
+        args="base_to_second_joint_velocity_controller joint_velocity_controller"/>
+
+
+  
+<!-- converts joint states to TF transforms -->
+  <node name="table_state_publisher" 
+        pkg="robot_state_publisher" 
+        type="robot_state_publisher" 
+        respawn="false" 
+        output="screen">
+      <remap from="joint_states" to="/simple_model/joint_states" />
+  </node>
+
+
+
+</launch>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="bout_m20">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0214850394722903 4.11705222364641E-09 3.45128141200471E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.296" />
+      <inertia
+        ixx="2.67302136936691E-06"
+        ixy="2.00410919388457E-12"
+        ixz="2.02717589161746E-14"
+        iyy="9.27475891017445E-06"
+        iyz="4.76402678647064E-14"
+        izz="9.27476716738739E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://suii_description/Field/objects/meshes/bolt_M20x100.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://suii_description/Field/objects/meshes/bolt_M20x100.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="bout_m30">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00277719675380159 0.00412136580974739 0.0051882759161364"
+        rpy="0 0 0" />
+      <mass
+        value="0.217" />
+      <inertia
+        ixx="1.20523360503025E-06"
+        ixy="-5.68695348377013E-14"
+        ixz="-8.90391194379844E-24"
+        iyy="1.2052311292769E-06"
+        iyz="-3.10355744670128E-13"
+        izz="1.72017184631832E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://suii_description/Field/objects/meshes/nut_M30.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://suii_description/Field/objects/meshes/nut_M30.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>
