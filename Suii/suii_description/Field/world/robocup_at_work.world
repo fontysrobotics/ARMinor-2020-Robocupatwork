@@ -665,7 +665,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/ros/catkin_ws/src/P2_Project_Robocup/Suii/suii_description/Field/plateau/meshes/plateau.STL</uri>
+              <uri>/home/ros/catkin_ws/src/ARMinor-2020-Robocupatwork/Suii/suii_description/Field/plateau/meshes/plateau.STL</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -687,7 +687,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/ros/catkin_ws/src/P2_Project_Robocup/Suii/suii_description/Field/plateau/meshes/plateau.STL</uri>
+              <uri>/home/ros/catkin_ws/src/ARMinor-2020-Robocupatwork/Suii/suii_description/Field/plateau/meshes/plateau.STL</uri>
             </mesh>
           </geometry>
         </visual>
@@ -718,7 +718,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/ros/catkin_ws/src/P2_Project_Robocup/Suii/suii_description/Field/plateau/meshes/plateau.STL</uri>
+              <uri>/home/ros/catkin_ws/src/ARMinor-2020-Robocupatwork/Suii/suii_description/Field/plateau/meshes/plateau.STL</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -740,7 +740,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/ros/catkin_ws/src/P2_Project_Robocup/Suii/suii_description/Field/plateau/meshes/plateau.STL</uri>
+              <uri>/home/ros/catkin_ws/src/ARMinor-2020-Robocupatwork/Suii/suii_description/Field/plateau/meshes/plateau.STL</uri>
             </mesh>
           </geometry>
         </visual>
