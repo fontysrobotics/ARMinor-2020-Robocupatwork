@@ -7,3 +7,6 @@ how to commit:\
 2:git add . (git add <directory/files you want to commit>, dot is wildcard for all changes)\
 3:git commit -m "<message to inform everyone of the changes you made>"\
 4:git push
+
+
+This project is one of the deliverables of the ROSIN EP FREROS project. It was developed for the Adaptive Robotics minor of Fontys University of Applied Sciences which aims to be one of the best ROS and Robotics education center's in the Netherlands.
